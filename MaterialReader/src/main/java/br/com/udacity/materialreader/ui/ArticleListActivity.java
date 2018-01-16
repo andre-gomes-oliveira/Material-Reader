@@ -1,4 +1,4 @@
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.app.LoaderManager;
 import android.content.BroadcastReceiver;
@@ -19,10 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.materialreader.R;
-import com.example.materialreader.data.ArticleLoader;
-import com.example.materialreader.data.ItemsContract;
-import com.example.materialreader.data.UpdaterService;
+import br.com.udacity.material_reader.R;
+import br.com.udacity.material_reader.data.ArticleLoader;
+import br.com.udacity.material_reader.data.ItemsContract;
+import br.com.udacity.material_reader.data.UpdaterService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

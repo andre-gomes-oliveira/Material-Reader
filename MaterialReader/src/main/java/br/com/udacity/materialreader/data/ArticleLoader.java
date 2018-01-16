@@ -1,4 +1,4 @@
-package com.example.materialreader.data;
+package br.com.udacity.material_reader.data;
 
 import android.content.Context;
 import android.content.CursorLoader;

@@ -1,4 +1,4 @@
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.example.materialreader.data;
+package br.com.udacity.material_reader.data;
 
 import android.app.IntentService;
 import android.content.ContentProviderOperation;
@@ -10,7 +10,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.RemoteException;
 
-import com.example.materialreader.remote.RemoteEndpointUtil;
+import br.com.udacity.material_reader.remote.RemoteEndpointUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;

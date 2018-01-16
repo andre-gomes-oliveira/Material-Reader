@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;

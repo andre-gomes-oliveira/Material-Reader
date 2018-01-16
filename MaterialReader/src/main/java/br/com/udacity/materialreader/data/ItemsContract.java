@@ -1,10 +1,10 @@
-package com.example.materialreader.data;
+package br.com.udacity.material_reader.data;
 
 import android.net.Uri;
 
 public class ItemsContract {
-	public static final String CONTENT_AUTHORITY = "com.example.materialreader";
-	public static final Uri BASE_URI = Uri.parse("content://com.example.materialreader");
+	public static final String CONTENT_AUTHORITY = "br.com.udacity.material_reader";
+	public static final Uri BASE_URI = Uri.parse("content://br.com.udacity.material_reader");
 
 	interface ItemsColumns {
 		/** Type: INTEGER PRIMARY KEY AUTOINCREMENT */
@@ -28,8 +28,8 @@ public class ItemsContract {
 	}
 
 	public static class Items implements ItemsColumns {
-		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.com.example.materialreader.items";
-		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.com.example.materialreader.items";
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.br.com.udacity.material_reader.items";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.br.com.udacity.material_reader.items";
 
         public static final String DEFAULT_SORT = PUBLISHED_DATE + " DESC";
 

@@ -1,4 +1,4 @@
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 
-import com.example.materialreader.R;
-import com.example.materialreader.data.ArticleLoader;
-import com.example.materialreader.data.ItemsContract;
+import br.com.udacity.material_reader.R;
+import br.com.udacity.material_reader.data.ArticleLoader;
+import br.com.udacity.material_reader.data.ItemsContract;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.

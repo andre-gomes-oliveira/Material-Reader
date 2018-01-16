@@ -20,7 +20,7 @@
  * -Changed package name
  */
 
-package com.example.materialreader.data;
+package br.com.udacity.material_reader.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,9 +82,7 @@ public class SelectionBuilder {
         mSelection.append("(").append(selection).append(")");
         if (selectionArgs != null) {
         	ensureSelectionArgs();
-            for (String arg : selectionArgs) {
-                mSelectionArgs.add(arg);
-            }
+            mSelectionArgs.addAll(Arrays.asList(selectionArgs));
         }
 
         return this;

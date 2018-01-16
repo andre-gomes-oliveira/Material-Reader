@@ -1,10 +1,10 @@
-package com.example.materialreader.data;
+package br.com.udacity.material_reader.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.materialreader.data.ItemsProvider.Tables;
+import static br.com.udacity.material_reader.data.ItemsProvider.Tables;
 
 public class ItemsDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "xyzreader.db";

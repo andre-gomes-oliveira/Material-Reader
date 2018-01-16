@@ -1,4 +1,4 @@
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
@@ -31,8 +31,8 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.example.materialreader.R;
-import com.example.materialreader.data.ArticleLoader;
+import br.com.udacity.material_reader.R;
+import br.com.udacity.material_reader.data.ArticleLoader;
 
 import timber.log.Timber;
 

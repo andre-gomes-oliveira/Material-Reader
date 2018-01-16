@@ -1,7 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.materialreader"
-    android:versionCode="1"
-    android:versionName="1.0">
+    package="br.com.udacity.material_reader">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -29,18 +27,18 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.item/vnd.com.example.materialreader.items" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.br.com.udacity.material_reader.items" />
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.materialreader.ui.ArticleListActivity" />
+                android:value="br.com.udacity.material_reader.ui.ArticleListActivity" />
         </activity>
 
-        <service android:name="com.example.materialreader.data.UpdaterService"
+        <service android:name="br.com.udacity.material_reader.data.UpdaterService"
             android:exported="false" />
 
-        <provider android:name="com.example.materialreader.data.ItemsProvider"
-            android:authorities="com.example.materialreader"
+        <provider android:name="br.com.udacity.material_reader.data.ItemsProvider"
+            android:authorities="br.com.udacity.material_reader"
             android:exported="false" />
 
     </application>

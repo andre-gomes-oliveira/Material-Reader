@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.materialreader.ui;
+package br.com.udacity.material_reader.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,7 +26,7 @@ import android.util.AttributeSet;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 
-import com.example.materialreader.R;
+import br.com.udacity.material_reader.R;
 
 
 public class DrawInsetsFrameLayout extends FrameLayout {
