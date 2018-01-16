@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <!--suppress AndroidLintContentDescription -->
-        <com.example.materialreader.ui.DynamicHeightNetworkImageView
+        <br.com.udacity.material_reader.ui.DynamicHeightNetworkImageView
             android:id="@+id/thumbnail"
             android:layout_width="100dp"
             android:layout_height="100dp"

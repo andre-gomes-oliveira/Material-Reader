@@ -20,9 +20,10 @@
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
 
     </style>
-
+<!-- //TODO: Figure out how to set a transparen color in apis under 21
     <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">#00000000</item>
     </style>
+-->
 
 </resources>
