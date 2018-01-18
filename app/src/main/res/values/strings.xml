@@ -8,5 +8,6 @@
     <string name="action_share">Share</string>
 
     <string name="up">Up</string>
-
+    <string name="image_web_content_description">An image downloaded from the web.</string>
+    <string name="error_loading_message">Failed to load the data. Please check your internet connection.</string>
 </resources>

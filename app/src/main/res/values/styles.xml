@@ -16,14 +16,48 @@
 -->
 
 <resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"/>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-<!-- //TODO: Figure out how to set a transparen color in apis under 21
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">#00000000</item>
-    </style>
--->
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Title theme -->
+    <style name="TitleTheme" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:paddingTop">@dimen/title_padding_top</item>
+        <item name="android:paddingLeft">@dimen/title_padding_left</item>
+        <item name="android:paddingRight">@dimen/title_padding_right</item>
+        <item name="android:paddingBottom">@dimen/title_padding_bottom</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:maxLines">@integer/title_max_lines</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Subtitle theme -->
+    <style name="SubtitleTheme" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:paddingLeft">@dimen/title_padding_left</item>
+        <item name="android:paddingRight">@dimen/title_padding_right</item>
+        <item name="android:paddingBottom">@dimen/title_padding_bottom</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:maxLines">@integer/subtitle_max_lines</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Plain text theme -->
+    <style name="plainTextTheme">
+        <item name="android:layout_marginLeft">@dimen/detail_inner_horiz_margin</item>
+        <item name="android:layout_marginRight">@dimen/detail_inner_horiz_margin</item>
+        <item name="android:paddingBottom">@dimen/detail_body_bottom_margin</item>
+        <item name="android:textSize">@dimen/detail_body_text_size</item>
+        <item name="android:textColor">@color/colorAccentText</item>
+        <item name="android:textColorLink">@color/colorAccent</item>
+        <item name="android:lineSpacingMultiplier">@fraction/detail_body_line_spacing_multiplier
+        </item>
+    </style>
 </resources>

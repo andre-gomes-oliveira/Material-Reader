@@ -8,4 +8,12 @@
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
 
+    <!-- Text padding and margin -->
+    <dimen name="title_padding_top">16dp</dimen>
+    <dimen name="title_padding_left">16dp</dimen>
+    <dimen name="title_padding_right">16dp</dimen>
+    <dimen name="title_padding_bottom">4dp</dimen>
+
+    <!-- Images -->
+    <dimen name="network_image_view_height">200dp</dimen>
 </resources>

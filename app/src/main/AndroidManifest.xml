@@ -8,9 +8,11 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat">
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
         <activity
             android:name="br.com.udacity.material_reader.ui.ArticleListActivity"
