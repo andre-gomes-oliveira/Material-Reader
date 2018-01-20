@@ -27,5 +27,7 @@
     <color name="colorPrimaryText">#DDFFFFFF</color>
     <color name="colorAccentText">#DE000000</color>
 
+    <!-- background colors -->
     <color name="photo_placeholder">#ccc</color>
+    <color name="transparent">#00000000</color>
 </resources>

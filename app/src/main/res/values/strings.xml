@@ -10,4 +10,6 @@
     <string name="up">Up</string>
     <string name="image_web_content_description">An image downloaded from the web.</string>
     <string name="error_loading_message">Failed to load the data. Please check your internet connection.</string>
+    <string name="example_text">Some sample text</string>
+    <string name="text_type">text/plain</string>
 </resources>

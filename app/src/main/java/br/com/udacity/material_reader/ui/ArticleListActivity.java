@@ -39,7 +39,6 @@ import timber.log.Timber;
 public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
-    private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -56,8 +55,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
         //Setting up Timber
         Timber.plant(new Timber.DebugTree());
-
-        mToolbar = findViewById(R.id.toolbar);
 
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
 
