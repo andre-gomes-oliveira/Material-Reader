@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import static br.com.udacity.material_reader.data.ItemsProvider.Tables;
 
 class ItemsDatabase extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "xyzreader.db";
+    private static final String DATABASE_NAME = "materialreader.db";
     private static final int DATABASE_VERSION = 2;
 
     ItemsDatabase(Context context) {

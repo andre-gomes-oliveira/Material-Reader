@@ -24,7 +24,6 @@ package br.com.udacity.material_reader.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -36,34 +35,16 @@ import android.text.TextUtils;
  * appended clause is combined using {@code AND}. This class is <em>not</em>
  * thread safe.
  */
-public class SelectionBuilder {
+class SelectionBuilder {
     private String mTable = null;
-    private HashMap<String, String> mProjectionMap;
     private StringBuilder mSelection;
     private ArrayList<String> mSelectionArgs;
-
-    /**
-     * Reset any internal state, allowing this builder to be recycled.
-     */
-    public SelectionBuilder reset() {
-        mTable = null;
-		if (mProjectionMap != null) {
-			mProjectionMap.clear();
-		}
-		if (mSelection != null) {
-			mSelection.setLength(0);
-		}
-		if (mSelectionArgs != null) {
-			mSelectionArgs.clear();
-		}
-        return this;
-    }
 
     /**
      * Append the given selection clause to the internal state. Each clause is
      * surrounded with parenthesis and combined using {@code AND}.
      */
-    public SelectionBuilder where(String selection, String... selectionArgs) {
+    SelectionBuilder where(String selection, String... selectionArgs) {
         if (TextUtils.isEmpty(selection)) {
             if (selectionArgs != null && selectionArgs.length > 0) {
                 throw new IllegalArgumentException(
@@ -88,7 +69,7 @@ public class SelectionBuilder {
         return this;
     }
 
-    public SelectionBuilder table() {
+    SelectionBuilder table() {
         mTable = ItemsProvider.Tables.ITEMS;
         return this;
     }
@@ -97,12 +78,6 @@ public class SelectionBuilder {
         if (mTable == null) {
             throw new IllegalStateException("Table not specified");
         }
-    }
-
-    private void ensureProjectionMap() {
-		if (mProjectionMap == null) {
-			mProjectionMap = new HashMap<>();
-		}
     }
 
     private void ensureSelection(int lengthHint) {
@@ -115,18 +90,6 @@ public class SelectionBuilder {
     	if (mSelectionArgs == null) {
     		mSelectionArgs = new ArrayList<>();
     	}
-    }
-
-    public SelectionBuilder mapToTable(String column, String table) {
-    	ensureProjectionMap();
-        mProjectionMap.put(column, table + "." + column);
-        return this;
-    }
-
-    public SelectionBuilder map(String fromColumn, String toClause) {
-    	ensureProjectionMap();
-        mProjectionMap.put(fromColumn, toClause + " AS " + fromColumn);
-        return this;
     }
 
     /**
@@ -155,16 +118,6 @@ public class SelectionBuilder {
     	}
     }
 
-    private void mapColumns(String[] columns) {
-    	if (mProjectionMap == null) return;
-        for (int i = 0; i < columns.length; i++) {
-            final String target = mProjectionMap.get(columns[i]);
-            if (target != null) {
-                columns[i] = target;
-            }
-        }
-    }
-
     @Override
     public String toString() {
         return "SelectionBuilder[table=" + mTable + ", selection=" + getSelection()
@@ -175,18 +128,8 @@ public class SelectionBuilder {
      * Execute query using the current internal state as {@code WHERE} clause.
      */
     Cursor query(SQLiteDatabase db, String[] columns, String orderBy) {
-        return query(db, columns, orderBy, null);
-    }
-
-    /**
-     * Execute query using the current internal state as {@code WHERE} clause.
-     */
-    private Cursor query(SQLiteDatabase db, String[] columns,
-                         String orderBy, String limit) {
-        assertTable();
-        if (columns != null) mapColumns(columns);
         return db.query(mTable, columns, getSelection(), getSelectionArgs(), null, null,
-                orderBy, limit);
+                orderBy, null);
     }
 
     /**
