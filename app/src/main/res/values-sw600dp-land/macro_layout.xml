@@ -1,7 +1,7 @@
 <resources>
-    <!-- list -->
-    <integer name="list_column_count">3</integer>
-
     <!-- detail -->
-    <dimen name="detail_photo_height">600dp</dimen>
+    <dimen name="detail_photo_height">480dp</dimen>
+
+    <!-- Text -->
+    <dimen name="article_horizontal_margin">72dp</dimen>
 </resources>

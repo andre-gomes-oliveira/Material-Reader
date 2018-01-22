@@ -64,5 +64,7 @@
         <item name="android:textColor">@color/colorAccentText</item>
         <item name="android:textColorLink">@color/colorAccent</item>
         <item name="android:background">@color/colorPrimaryText</item>
+
+        <!-- Floating Action Button theme -->
     </style>
 </resources>

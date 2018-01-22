@@ -6,4 +6,22 @@
 
     <!-- detail -->
     <dimen name="detail_photo_height">384dp</dimen>
+    <dimen name="detail_title_text_size">32sp</dimen>
+    <dimen name="detail_subtitle_text_size">28sp</dimen>
+    <dimen name="detail_body_text_size">24sp</dimen>
+
+    <!-- Text padding and margin -->
+    <dimen name="title_padding_top">24dp</dimen>
+    <dimen name="title_padding_left">24dp</dimen>
+    <dimen name="title_padding_right">24dp</dimen>
+    <dimen name="title_padding_bottom">8dp</dimen>
+
+    <dimen name="article_padding_top">16dp</dimen>
+    <dimen name="article_padding_left">8dp</dimen>
+    <dimen name="article_padding_right">8dp</dimen>
+    <dimen name="article_padding_bottom">16dp</dimen>
+    <dimen name="article_horizontal_margin">52dp</dimen>
+
+    <!-- Others -->
+    <dimen name="fab_margin">36dp</dimen>
 </resources>

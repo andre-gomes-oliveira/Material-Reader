@@ -1,8 +1,0 @@
-<resources>
-    <!-- list -->
-    <dimen name="list_side_margin">64dp</dimen>
-    <!-- minus 64 - 12 -->
-    <integer name="list_column_count">3</integer>
-
-    <!-- detail -->
-</resources>

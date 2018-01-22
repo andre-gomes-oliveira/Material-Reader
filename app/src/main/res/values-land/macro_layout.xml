@@ -3,6 +3,9 @@
     <dimen name="list_side_margin">8dp</dimen>
     <integer name="list_column_count">2</integer>
 
+    <!-- Text -->
+    <dimen name="article_horizontal_margin">36dp</dimen>
+
     <!-- detail -->
     <dimen name="detail_photo_height">224dp</dimen>
 </resources>

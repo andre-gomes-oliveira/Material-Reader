@@ -59,8 +59,8 @@
             android:layout_marginEnd="@dimen/fab_margin"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_share"
-            app:backgroundTint="@color/colorAccent" />
+            app:backgroundTint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_share" />
     </android.support.design.widget.CoordinatorLayout>
 
 </android.support.design.widget.CoordinatorLayout>
