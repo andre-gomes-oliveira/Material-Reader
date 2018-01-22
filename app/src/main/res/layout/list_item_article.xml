@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <br.com.udacity.material_reader.ui.DynamicHeightNetworkImageView
+        <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_photo_height"

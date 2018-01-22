@@ -5,8 +5,8 @@ import java.net.URL;
 
 import timber.log.Timber;
 
-public class Config {
-    public static final URL BASE_URL;
+class Config {
+    static final URL BASE_URL;
 
     static {
         URL url = null;

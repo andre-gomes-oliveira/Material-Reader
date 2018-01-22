@@ -11,12 +11,14 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import br.com.udacity.material_reader.R;
 import br.com.udacity.material_reader.data.ArticleLoader;
@@ -27,7 +29,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import timber.log.Timber;
 
 /**
@@ -39,10 +44,13 @@ import timber.log.Timber;
 public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerView;
+    @BindView(R.id.swipe_refresh_layout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss", Locale.US);
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
     // Most time functions can only handle 1902 - 2037
@@ -56,9 +64,9 @@ public class ArticleListActivity extends AppCompatActivity implements
         //Setting up Timber
         Timber.plant(new Timber.DebugTree());
 
-        mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        //Setting up ButterKnife
+        ButterKnife.bind(this);
 
-        mRecyclerView = findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
 
         if (savedInstanceState == null) {
@@ -149,7 +157,6 @@ public class ArticleListActivity extends AppCompatActivity implements
                 return dateFormat.parse(date);
             } catch (ParseException ex) {
                 Timber.e(ex.getMessage());
-                Timber.i("passing today's date");
                 return new Date();
             }
         }
@@ -174,10 +181,14 @@ public class ArticleListActivity extends AppCompatActivity implements
                                 + "<br/>" + " by "
                                 + mCursor.getString(ArticleLoader.Query.AUTHOR)));
             }
-            holder.thumbnailView.setImageUrl(
-                    mCursor.getString(ArticleLoader.Query.THUMB_URL),
-                    ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
-            holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
+            Timber.i(mCursor.getString(ArticleLoader.Query.THUMB_URL));
+
+            Picasso.with(holder.thumbnailView.getContext())
+                    .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
+                    .placeholder(R.drawable.photo_background_protection)
+                    .error(R.drawable.ic_error_outline)
+                    .into(holder.thumbnailView);
         }
 
         @Override
@@ -191,7 +202,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        DynamicHeightNetworkImageView thumbnailView;
+        ImageView thumbnailView;
         TextView titleView;
         TextView subtitleView;
 

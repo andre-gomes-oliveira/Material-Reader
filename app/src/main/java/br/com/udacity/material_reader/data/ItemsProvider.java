@@ -67,7 +67,7 @@ public class ItemsProvider extends ContentProvider {
 	}
 
 	@Override
-	public Uri insert(Uri uri, ContentValues values) {
+	public Uri insert(@NonNull Uri uri, ContentValues values) {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
@@ -83,7 +83,7 @@ public class ItemsProvider extends ContentProvider {
 	}
 
 	@Override
-	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+	public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSelection(uri);
         getContext().getContentResolver().notifyChange(uri, null);
@@ -91,7 +91,7 @@ public class ItemsProvider extends ContentProvider {
 	}
 
 	@Override
-	public int delete(Uri uri, String selection, String[] selectionArgs) {
+	public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSelection(uri);
         getContext().getContentResolver().notifyChange(uri, null);
@@ -108,11 +108,11 @@ public class ItemsProvider extends ContentProvider {
 		final List<String> paths = uri.getPathSegments();
 		switch (match) {
 			case ITEMS: {
-				return builder.table(Tables.ITEMS);
+				return builder.table();
 			}
 			case ITEMS__ID: {
 				final String _id = paths.get(1);
-				return builder.table(Tables.ITEMS).where(ItemsContract.Items._ID + "=?", _id);
+				return builder.table().where(ItemsContract.Items._ID + "=?", _id);
 			}
 			default: {
 				throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -125,7 +125,8 @@ public class ItemsProvider extends ContentProvider {
      * a {@link SQLiteDatabase} transaction. All changes will be rolled back if
      * any single one fails.
      */
-    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> operations)
+    @NonNull
+	public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> operations)
             throws OperationApplicationException {
         final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         db.beginTransaction();

@@ -17,8 +17,6 @@
 
 <resources>
     <!-- Basic theme colors -->
-    <color name="colorPrimary">#FF212121</color>
-    <color name="colorPrimaryDark">#FF000000</color>
 
     <!-- Accent colors -->
     <color name="colorAccent">#FF80CBC4</color>
@@ -29,5 +27,4 @@
 
     <!-- background colors -->
     <color name="photo_placeholder">#ccc</color>
-    <color name="transparent">#00000000</color>
 </resources>

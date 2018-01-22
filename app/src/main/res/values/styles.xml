@@ -54,13 +54,15 @@
 
     <!-- Plain text theme -->
     <style name="plainTextTheme">
-        <item name="android:layout_marginLeft">@dimen/detail_inner_horiz_margin</item>
-        <item name="android:layout_marginRight">@dimen/detail_inner_horiz_margin</item>
-        <item name="android:paddingBottom">@dimen/detail_body_bottom_margin</item>
+        <item name="android:layout_marginStart">@dimen/article_horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/article_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/article_padding_top</item>
+        <item name="android:paddingLeft">@dimen/article_padding_left</item>
+        <item name="android:paddingRight">@dimen/article_padding_right</item>
+        <item name="android:paddingBottom">@dimen/article_padding_bottom</item>
         <item name="android:textSize">@dimen/detail_body_text_size</item>
         <item name="android:textColor">@color/colorAccentText</item>
         <item name="android:textColorLink">@color/colorAccent</item>
-        <item name="android:lineSpacingMultiplier">@fraction/detail_body_line_spacing_multiplier
-        </item>
+        <item name="android:background">@color/colorPrimaryText</item>
     </style>
 </resources>

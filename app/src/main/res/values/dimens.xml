@@ -3,10 +3,8 @@
     <dimen name="detail_title_text_size">24sp</dimen>
     <dimen name="detail_subtitle_text_size">16sp</dimen>
     <dimen name="detail_body_text_size">20sp</dimen>
-    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
+    <dimen name="article_horizontal_margin">8dp</dimen>
 
-    <dimen name="fab_elevation">2dp</dimen>
-    <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
 
     <!-- Text padding and margin -->
@@ -15,6 +13,11 @@
     <dimen name="title_padding_right">16dp</dimen>
     <dimen name="title_padding_bottom">4dp</dimen>
 
+    <dimen name="article_padding_top">8dp</dimen>
+    <dimen name="article_padding_left">4dp</dimen>
+    <dimen name="article_padding_right">4dp</dimen>
+    <dimen name="article_padding_bottom">8dp</dimen>
+
     <!-- Images -->
-    <dimen name="network_image_view_height">200dp</dimen>
+
 </resources>

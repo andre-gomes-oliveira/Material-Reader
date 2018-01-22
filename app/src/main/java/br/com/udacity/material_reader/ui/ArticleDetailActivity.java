@@ -3,24 +3,33 @@ package br.com.udacity.material_reader.ui;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowInsets;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import br.com.udacity.material_reader.R;
 import br.com.udacity.material_reader.data.ArticleLoader;
 import br.com.udacity.material_reader.data.ItemsContract;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import timber.log.Timber;
 
 /**
  * An activity representing a single Article detail screen, letting you swipe between articles.
@@ -31,8 +40,22 @@ public class ArticleDetailActivity extends AppCompatActivity
     private Cursor mCursor;
     private long mStartId;
 
-    private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
+
+    @BindView(R.id.detail_toolbar)
+    Toolbar mToolbar;
+
+    @BindView(R.id.detail_toolbar_layout)
+    CollapsingToolbarLayout mAppBarLayout;
+
+    @BindView(R.id.photo_view)
+    ImageView mPhotoView;
+
+    @BindView(R.id.pager)
+    ViewPager mPager;
+
+    @BindView(R.id.share_fab)
+    FloatingActionButton mForwardShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +67,10 @@ public class ArticleDetailActivity extends AppCompatActivity
         }
         setContentView(R.layout.activity_article_detail);
 
-        Toolbar toolbar = findViewById(R.id.detail_toolbar);
-        setSupportActionBar(toolbar);
+        //Setting up ButterKnife
+        ButterKnife.bind(this);
+
+        setSupportActionBar(mToolbar);
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -56,7 +81,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         getLoaderManager().initLoader(0, null, this);
 
         mPagerAdapter = new MyPagerAdapter(getFragmentManager());
-        mPager = findViewById(R.id.pager);
+
         mPager.setAdapter(mPagerAdapter);
         mPager.setPageMargin((int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
@@ -68,6 +93,14 @@ public class ArticleDetailActivity extends AppCompatActivity
             public void onPageSelected(int position) {
                 if (mCursor != null) {
                     mCursor.moveToPosition(position);
+                    Timber.i(mCursor.getString(ArticleLoader.Query.THUMB_URL));
+                    mAppBarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+
+                    Picasso.with(getBaseContext())
+                            .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
+                            .placeholder(R.drawable.photo_background_protection)
+                            .error(R.drawable.ic_error_outline)
+                            .into(mPhotoView);
                 }
             }
         });
@@ -92,7 +125,7 @@ public class ArticleDetailActivity extends AppCompatActivity
         // Select the start ID
         if (mStartId > 0) {
             mCursor.moveToFirst();
-            // TODO: optimize
+
             while (!mCursor.isAfterLast()) {
                 if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
                     final int position = mCursor.getPosition();
@@ -101,6 +134,19 @@ public class ArticleDetailActivity extends AppCompatActivity
                 }
                 mCursor.moveToNext();
             }
+
+            Timber.i(mCursor.getString(ArticleLoader.Query.THUMB_URL));
+
+            Picasso.with(this)
+                    .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
+                    .placeholder(R.drawable.photo_background_protection)
+                    .error(R.drawable.ic_error_outline)
+                    .into(mPhotoView);
+
+            if (mAppBarLayout != null) {
+                mAppBarLayout.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+            }
+
             mStartId = 0;
         }
     }
@@ -109,6 +155,14 @@ public class ArticleDetailActivity extends AppCompatActivity
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         mCursor = null;
         mPagerAdapter.notifyDataSetChanged();
+    }
+
+    @OnClick(R.id.share_fab)
+    public void onShareFabClicked() {
+        startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(this)
+                .setType(getString(R.string.text_type))
+                .setText(mCursor.getString(ArticleLoader.Query.TITLE) + " " + getString(R.string.text_share))
+                .getIntent(), getString(R.string.action_share)));
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
