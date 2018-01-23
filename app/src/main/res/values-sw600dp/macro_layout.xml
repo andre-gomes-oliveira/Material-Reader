@@ -10,6 +10,14 @@
     <dimen name="detail_subtitle_text_size">28sp</dimen>
     <dimen name="detail_body_text_size">24sp</dimen>
 
+    <!-- Card View -->
+    <dimen name="card_vertical_margin">8dp</dimen>
+    <dimen name="card_horizontal_margin">8dp</dimen>
+    <dimen name="card_padding_top">8dp</dimen>
+    <dimen name="card_padding_start">12dp</dimen>
+    <dimen name="card_padding_end">12dp</dimen>
+    <dimen name="card_padding_bottom">8dp</dimen>
+
     <!-- Text padding and margin -->
     <dimen name="title_padding_top">24dp</dimen>
     <dimen name="title_padding_left">24dp</dimen>

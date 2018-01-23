@@ -54,12 +54,7 @@
             android:id="@+id/share_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="@dimen/fab_margin"
-            android:layout_marginEnd="@dimen/fab_margin"
-            android:clickable="true"
-            android:focusable="true"
-            app:backgroundTint="@color/colorAccent"
+            style="@style/floatingButtonTheme"
             app:srcCompat="@drawable/ic_share" />
     </android.support.design.widget.CoordinatorLayout>
 

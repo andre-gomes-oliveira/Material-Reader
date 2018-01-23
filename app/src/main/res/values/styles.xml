@@ -17,7 +17,11 @@
 
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"/>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -64,7 +68,15 @@
         <item name="android:textColor">@color/colorAccentText</item>
         <item name="android:textColorLink">@color/colorAccent</item>
         <item name="android:background">@color/colorPrimaryText</item>
+    </style>
 
-        <!-- Floating Action Button theme -->
+    <!-- Floating Action Button theme -->
+    <style name="floatingButtonTheme">
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginBottom">@dimen/fab_margin</item>
+        <item name="android:layout_marginEnd">@dimen/fab_margin</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 </resources>
