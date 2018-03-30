@@ -21,7 +21,7 @@
     <color name="colorPrimaryDark">#263238</color>
 
     <!-- Accent colors -->
-    <color name="colorAccent">#e64a19</color>
+    <color name="colorAccent">#FF5722</color>
 
     <!-- Text colors -->
     <color name="colorPrimaryText">#DDFFFFFF</color>
